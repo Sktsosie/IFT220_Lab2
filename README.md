@@ -3,36 +3,38 @@
 
 (Do this on your VM.  Take a VM snapshot so you can undo if something goes wrong.)
 
-1.	Install https://www.microsoft.com/en-us/download/details.aspx?id=54616 (Win8.1AndW2K12R2-KB3191564-x64.msu) and optionally a text editor: 
+1.	Install https://www.microsoft.com/en-us/download/details.aspx?id=54616 (Win8.1AndW2K12R2-KB3191564-x64.msu, FILENAME SAYS FOR windows 8.1 and Server 2012 r2) and optionally a text editor: 
     1.	https://notepad-plus-plus.org/repository/7.x/7.5.9/npp.7.5.9.Installer.x64.exe
     1.	https://download.sublimetext.com/Sublime%20Text%20Build%203176%20x64%20Setup.exe
-2.	Fork (top right on the GitHub UI) my code (https://github.com/ericcase/IFT220_Lab2)
+2.	Fork (top right on the GitHub UI) my code (https://github.com/ericcase/IFT220_Lab2) (it will prompt you for your own github creds)
 3.	Install Git for Windows (https://git-for-windows.github.io)
     1.	If you installed a text editor, selected it during the install
 4.	Launch **PowerShell ISE** and run
 ```powershell
-# Configure Git
+# Configure Git   (3 command lines to execuate individually below, be sure to change your name and your email address)
 git config --global user.name 'your name'
 git config --global user.email 'your email address'
 git config --global push.default simple
 
-# Install Gosh-Git
+# Install Gosh-Git (command line below)
 Install-Module -Name posh-git -Force # step 1 was a needed update so we could had the Install-Module cmdlet
 
-# Add Posh to PowerShell profile to get the Git prompt
+# Add Posh to PowerShell profile to get the Git prompt (command line below)
 Add-PoshGitToProfile
 
-# Make a directory for you GitHub projects
+# Make a directory for you GitHub projects (2 steps in command line below)
 mkdir .\Documents\GitHub
 cd .\Documents\GitHub
 
-# Clone your copy of my code in you new GitHub folder
+# Clone your copy of my code in you new GitHub folder (command line below)
 git clone https://github.com/your_account/IFT220_Lab2.git
 
 # How can you look at what the clone command did?
+# change directory into the sub dir that was cloned and do a listing
+# it should show the files and folders that were cloned
 ```
 5.	Change one or more of the files somehow and save the change(s)
-    1.	Use psedit <file name> to edit in **PowerShell ISE**, or use your text editor
+    1.	Use psedit <file name> to edit in **PowerShell ISE**, or use your text editor  (used notepad++)
     2.  What shoud you change?  See the files for instructions.
 6.	Add the changed file(s) to the commit (`git add <filename>` or `git add -A`)
 7.	Commit (`git commit -m "a note about what you did"`)
